@@ -3,7 +3,7 @@ title: "Setup Guide: Digital Twin Workstation"
 description: Configure a local workstation with NVIDIA RTX GPU for running ROS 2, Gazebo, Unity, and Isaac Sim
 keywords: [workstation setup, RTX GPU, Ubuntu 22.04, ROS 2, Isaac Sim, development environment]
 sidebar_position: 1
-estimated_time: 2
+estimated_time: 120
 week: 1
 module: 0
 prerequisites: []
@@ -14,9 +14,13 @@ learning_objectives:
   - Set up Isaac Sim, Gazebo, and Unity for simulation workflows
 ---
 
+import LearningObjectives from '@site/src/components/LearningObjectives';
+import Prerequisites from '@site/src/components/Prerequisites';
+
 # Setup Guide: Digital Twin Workstation
 
-**Estimated Time**: 2 hours | **Difficulty**: Intermediate
+<LearningObjectives objectives={frontMatter.learning_objectives} />
+<Prerequisites prereqs={frontMatter.prerequisites} estimatedTime={frontMatter.estimated_time} />
 
 ---
 
@@ -245,7 +249,7 @@ Test your setup with these commands:
 - [ ] **Isaac Sim**: Launcher opens and Isaac Sim runs sample scene
 - [ ] **Python**: `python --version` shows Python 3.10+
 
-If all checks pass, you're ready to start [Module 1: ROS 2](../module-1-ros2/index.md)!
+If all checks pass, you're ready to start [Module 1: ROS 2](../module-1-ros2)!
 
 ---
 
@@ -301,7 +305,7 @@ sudo apt autoremove
 
 1. **Configure IDE**: Install VS Code with ROS and Python extensions
 2. **Clone Course Examples**: `git clone <course-repo-url>`
-3. **Start Learning**: Begin [Module 1: ROS 2](../module-1-ros2/index.md)
+3. **Start Learning**: Begin [Module 1: ROS 2](../module-1-ros2)
 
 ---
 
@@ -312,9 +316,9 @@ sudo apt autoremove
 - **Virtual Machines**: Poor GPU performance, not recommended
 
 For alternatives, see:
-- [Edge Kit Setup](./edge-kit.md) - Physical robot hardware (Jetson Orin Nano)
-- [Cloud Setup](./cloud.md) - AWS/Azure with NVIDIA GPUs
+- [Edge Kit Setup](./edge-kit) - Physical robot hardware (Jetson Orin Nano)
+- [Cloud Setup](./cloud) - AWS/Azure with NVIDIA GPUs
 
 ---
 
-**Questions?** Refer to the [Glossary](../references/glossary.md) for terminology or consult course forums.
+**Questions?** Refer to the [Glossary](../references/glossary) for terminology or consult course forums.

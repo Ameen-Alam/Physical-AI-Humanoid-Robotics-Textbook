@@ -178,27 +178,50 @@ This is a Docusaurus web application project:
 
 ---
 
-## Phase 9: Polish & Cross-Cutting Concerns
+## Phase 9: Migration - Apply Template System to Existing Chapters
+
+**Purpose**: Migrate existing 9 chapter files to use the new template system components
+
+**⚠️ CRITICAL**: This phase applies the template system infrastructure to actual content so readers see the upgraded layout
+
+### Migration for Existing Chapters
+
+- [X] T053 [P] [MIGRATION] Migrate docs/module-1-ros2/index.md to use LearningObjectives and Prerequisites components
+- [X] T054 [P] [MIGRATION] Migrate docs/module-2-digital-twin/index.md to use LearningObjectives and Prerequisites components
+- [X] T055 [P] [MIGRATION] Migrate docs/module-3-isaac/index.md to use LearningObjectives and Prerequisites components
+- [X] T056 [P] [MIGRATION] Migrate docs/module-4-vla-humanoids/index.md to use LearningObjectives and Prerequisites components
+- [X] T057 [P] [MIGRATION] Migrate docs/intro.md to use LearningObjectives component (no prerequisites for intro)
+- [X] T058 [P] [MIGRATION] Migrate docs/setup/workstation.md to use Prerequisites component
+- [X] T059 [P] [MIGRATION] Migrate docs/setup/edge-kit.md to use Prerequisites component
+- [X] T060 [P] [MIGRATION] Migrate docs/setup/cloud.md to use Prerequisites component
+- [X] T061 [MIGRATION] Run npm run build after all migrations to verify no errors
+- [ ] T062 [MIGRATION] Visually inspect each migrated chapter to verify component rendering
+
+**Checkpoint**: All existing chapters now use the new template system - readers see upgraded layout
+
+---
+
+## Phase 10: Polish & Cross-Cutting Concerns
 
 **Purpose**: Additional components, comprehensive documentation, and final validation
 
-- [ ] T053 [P] Create ExerciseBlock component in src/components/ExerciseBlock.tsx with progressive hints
-- [ ] T054 Register ExerciseBlock in src/theme/MDXComponents.js
-- [ ] T055 Add CSS styles for .exercise-block classes in src/css/custom.css
-- [ ] T056 Add difficulty badge styles (.badge-beginner, .badge-intermediate, .badge-advanced) in src/css/custom.css
-- [ ] T057 [P] Add dark mode CSS overrides for all components in src/css/custom.css
-- [ ] T058 [P] Create comprehensive content style guide in docs/references/content-style-guide.md
-- [ ] T059 [P] Document Bloom's Taxonomy verbs for learning objectives in docs/references/content-style-guide.md
-- [ ] T060 [P] Document content type guidelines (when to use Tutorial vs Concept vs Lab vs Reference) in docs/references/content-style-guide.md
-- [ ] T061 [P] Document voice and tone guidelines in docs/references/content-style-guide.md
-- [ ] T062 Add ExerciseBlock examples to chapter template in .specify/templates/chapter-template.md
-- [ ] T063 Update quickstart.md with final examples and troubleshooting guide in specs/002-chapter-template-system/quickstart.md
-- [ ] T064 Create 4 complete example chapters (Tutorial, Concept, Hands-on Lab, Reference) in docs/examples/
-- [ ] T065 Run npm run build to verify all validation passes for example chapters
-- [ ] T066 Test all components in both light and dark modes
-- [ ] T067 Verify keyboard navigation works for all interactive components
-- [ ] T068 Update main README.md with link to template usage instructions
-- [ ] T069 Create contracts/ directory symlink at project root pointing to specs/002-chapter-template-system/contracts/
+- [ ] T063 [P] Create ExerciseBlock component in src/components/ExerciseBlock.tsx with progressive hints
+- [ ] T064 Register ExerciseBlock in src/theme/MDXComponents.js
+- [ ] T065 Add CSS styles for .exercise-block classes in src/css/custom.css
+- [ ] T066 Add difficulty badge styles (.badge-beginner, .badge-intermediate, .badge-advanced) in src/css/custom.css
+- [ ] T067 [P] Add dark mode CSS overrides for all components in src/css/custom.css
+- [ ] T068 [P] Create comprehensive content style guide in docs/references/content-style-guide.md
+- [ ] T069 [P] Document Bloom's Taxonomy verbs for learning objectives in docs/references/content-style-guide.md
+- [ ] T070 [P] Document content type guidelines (when to use Tutorial vs Concept vs Lab vs Reference) in docs/references/content-style-guide.md
+- [ ] T071 [P] Document voice and tone guidelines in docs/references/content-style-guide.md
+- [ ] T072 Add ExerciseBlock examples to chapter template in .specify/templates/chapter-template.md
+- [ ] T073 Update quickstart.md with final examples and troubleshooting guide in specs/002-chapter-template-system/quickstart.md
+- [ ] T074 Create 4 complete example chapters (Tutorial, Concept, Hands-on Lab, Reference) in docs/examples/
+- [ ] T075 Run npm run build to verify all validation passes for example chapters
+- [ ] T076 Test all components in both light and dark modes
+- [ ] T077 Verify keyboard navigation works for all interactive components
+- [ ] T078 Update main README.md with link to template usage instructions
+- [ ] T079 Create contracts/ directory symlink at project root pointing to specs/002-chapter-template-system/contracts/
 
 ---
 
@@ -211,7 +234,8 @@ This is a Docusaurus web application project:
 - **User Stories (Phase 3-8)**: All depend on Foundational phase completion
   - User stories can then proceed in parallel (if staffed)
   - Or sequentially in priority order (US2+US1 → US6 → US3 → US4 → US5)
-- **Polish (Phase 9)**: Depends on all desired user stories being complete
+- **Migration (Phase 9)**: Depends on US2 completion (components must exist) - CRITICAL for visible upgrade
+- **Polish (Phase 10)**: Depends on all desired user stories being complete
 
 ### User Story Dependencies
 
@@ -270,26 +294,30 @@ Task: "Add base CSS structure for custom components in src/css/custom.css"
 
 ## Implementation Strategy
 
-### MVP First (User Stories 1 & 2 Only)
+### MVP First (User Stories 1 & 2 + Migration)
 
 1. Complete Phase 1: Setup
 2. Complete Phase 2: Foundational (CRITICAL - blocks all stories)
 3. Complete Phase 3: User Story 2 (Learning Components)
 4. Complete Phase 4: User Story 1 (Chapter Template)
-5. **STOP and VALIDATE**: Test creating a chapter from template with learning components
-6. Deploy/demo if ready
+5. **Complete Phase 9: Migration (CRITICAL)** - Apply components to existing chapters
+6. **STOP and VALIDATE**: Test creating a chapter from template AND verify existing chapters show new components
+7. Deploy/demo if ready
 
-**Rationale**: US1 and US2 together form the core value - authors can create structured chapters. This is the minimum viable product.
+**Rationale**: US1 and US2 provide infrastructure, but **migration makes it visible to readers**. Without migration, the upgrade appears incomplete. This is the true minimum viable product.
 
 ### Incremental Delivery
 
 1. Complete Setup + Foundational → Foundation ready
 2. Add User Story 2 → Test independently (components render)
-3. Add User Story 1 → Test independently (template works) → Deploy/Demo (MVP!)
-4. Add User Story 6 → Test independently (Key Takeaways) → Deploy/Demo
-5. Add User Stories 3, 4, 5 in parallel (documentation + config) → Deploy/Demo
-6. Add Polish → Final release
-7. Each story adds value without breaking previous stories
+3. Add User Story 1 → Test independently (template works)
+4. **Add Migration → Apply to existing chapters → Deploy/Demo (MVP!)** ⚠️ CRITICAL
+5. Add User Story 6 → Test independently (Key Takeaways) → Deploy/Demo
+6. Add User Stories 3, 4, 5 in parallel (documentation + config) → Deploy/Demo
+7. Add Polish → Final release
+8. Each story adds value without breaking previous stories
+
+**IMPORTANT**: Migration phase is when the upgrade becomes visible to end users. Infrastructure alone (US1+US2) is not sufficient for a deployable MVP.
 
 ### Parallel Team Strategy
 
@@ -308,7 +336,7 @@ With multiple developers:
 
 ## Task Summary
 
-**Total Tasks**: 69
+**Total Tasks**: 79
 
 **Tasks per User Story**:
 - Setup: 4 tasks
@@ -319,16 +347,19 @@ With multiple developers:
 - User Story 3 (P2): 7 tasks - Code Examples Standards
 - User Story 4 (P2): 8 tasks - Callout Guidelines
 - User Story 5 (P3): 4 tasks - Navigation Configuration
+- **Migration: 10 tasks - Apply template system to existing 9 chapter files (CRITICAL)**
 - Polish: 17 tasks - ExerciseBlock, Style Guide, Examples, Final Validation
 
 **Parallel Opportunities**:
 - 26 tasks marked [P] can run in parallel within their phase
 - User Stories 3, 4, 5, 6 can be developed in parallel after foundational phase
+- **All 8 migration tasks (T053-T060) can run in parallel - different files**
 
 **Suggested MVP Scope**:
-- Phases 1-4 (Setup + Foundational + US2 + US1) = 27 tasks
-- Delivers core value: standardized chapter template with learning components
+- Phases 1-4 + Migration (Setup + Foundational + US2 + US1 + Migration) = 37 tasks
+- Delivers core value: standardized chapter template with learning components APPLIED to existing chapters
 - Estimated: 2-3 days for single developer, 1-2 days with parallel execution
+- **Migration phase is CRITICAL** - without it, readers still see old layout despite infrastructure being built
 
 ---
 

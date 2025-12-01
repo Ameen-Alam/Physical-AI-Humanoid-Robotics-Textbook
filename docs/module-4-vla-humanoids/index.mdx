@@ -7,7 +7,7 @@ sidebar_label: "Module 4: VLA & Humanoids"
 estimated_time: 9
 week: 11
 module: 4
-prerequisites: ["module-3-isaac/index"]
+prerequisites: ["module-3-isaac"]
 learning_objectives:
   - Calculate forward and inverse kinematics for humanoid robots with 30+ degrees of freedom
   - Implement manipulation primitives (reach, grasp, place) for pick-and-place tasks
@@ -15,10 +15,16 @@ learning_objectives:
   - Deploy end-to-end VLA systems that translate voice commands into physical actions
 ---
 
+import LearningObjectives from '@site/src/components/LearningObjectives';
+import Prerequisites from '@site/src/components/Prerequisites';
+
 # Module 4: VLA & Humanoid Robotics
 
+<LearningObjectives objectives={frontMatter.learning_objectives} />
+<Prerequisites prereqs={frontMatter.prerequisites} estimatedTime={frontMatter.estimated_time} />
+
 **Duration**: Weeks 11-13 | **Estimated Time**: 9 hours
-**Prerequisites**: [Module 3: Isaac Sim](../module-3-isaac/index.md)
+**Prerequisites**: [Module 3: Isaac Sim](../module-3-isaac)
 
 ---
 
@@ -156,11 +162,11 @@ This course is **hardware-agnostic**, but examples use common platforms:
 
 1. **Complete Module 3**: Ensure you understand VSLAM and Nav2
 2. **Review Linear Algebra**: Brush up on rotation matrices, homogeneous transforms
-3. **Install MoveIt 2**: Follow [Workstation Setup](../setup/workstation.md)
+3. **Install MoveIt 2**: Follow [Workstation Setup](../setup/workstation)
 4. **Start Week 11**: Humanoid Kinematics *(Coming Soon)*
 
 ---
 
-**Questions?** Check the [Glossary](../references/glossary.md) for VLA and humanoid terminology or consult course forums.
+**Questions?** Check the [Glossary](../references/glossary) for VLA and humanoid terminology or consult course forums.
 
-**Previous Module**: [Module 3: Isaac Sim](../module-3-isaac/index.md)
+**Previous Module**: [Module 3: Isaac Sim](../module-3-isaac)

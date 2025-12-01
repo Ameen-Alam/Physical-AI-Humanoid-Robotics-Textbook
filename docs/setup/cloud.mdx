@@ -3,7 +3,7 @@ title: "Setup Guide: Cloud-Native Development"
 description: Configure cloud GPU instances on AWS or Azure for Physical AI development without local hardware
 keywords: [cloud computing, AWS, Azure, GPU instances, ROS 2 cloud, remote development]
 sidebar_position: 3
-estimated_time: 2
+estimated_time: 120
 week: 1
 module: 0
 prerequisites: []
@@ -14,7 +14,13 @@ learning_objectives:
   - Estimate cloud costs and optimize usage for the course
 ---
 
+import LearningObjectives from '@site/src/components/LearningObjectives';
+import Prerequisites from '@site/src/components/Prerequisites';
+
 # Setup Guide: Cloud-Native Development
+
+<LearningObjectives objectives={frontMatter.learning_objectives} />
+<Prerequisites prereqs={frontMatter.prerequisites} estimatedTime={frontMatter.estimated_time} />
 
 **Estimated Time**: 2 hours | **Difficulty**: Intermediate
 
@@ -288,12 +294,12 @@ vncserver :1 -geometry 1920x1080
 1. **Setup Billing Alerts**: Configure AWS/Azure to alert at $50, $100
 2. **Create Snapshot**: Save configured instance as custom image
 3. **Test GPU**: Run `nvidia-smi` and verify CUDA toolkit
-4. **Start Learning**: Begin [Module 1: ROS 2](../module-1-ros2/index.md)
+4. **Start Learning**: Begin [Module 1: ROS 2](../module-1-ros2)
 
 ---
 
-**Questions?** Refer to the [Glossary](../references/glossary.md) for terminology or consult cloud provider documentation.
+**Questions?** Refer to the [Glossary](../references/glossary) for terminology or consult cloud provider documentation.
 
 **Alternatives**:
-- [Workstation Setup](./workstation.md) - Best for long-term use
-- [Edge Kit Setup](./edge-kit.md) - For physical robot deployment
+- [Workstation Setup](./workstation) - Best for long-term use
+- [Edge Kit Setup](./edge-kit) - For physical robot deployment
